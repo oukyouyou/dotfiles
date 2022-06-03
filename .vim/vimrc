@@ -1,0 +1,76 @@
+"__        __                  __     ___
+"\ \      / /_ _ _ __   __ _ __\ \   / (_)_ __ ___
+ "\ \ /\ / / _` | '_ \ / _` / __\ \ / /| | '_ ` _ \
+  "\ V  V / (_| | | | | (_| \__ \\ V / | | | | | | |
+   "\_/\_/ \__,_|_| |_|\__, |___/ \_/  |_|_| |_| |_|
+                      " |___/
+let mapleader = " "
+syntax on
+set number 
+"set mouse=a
+"set norelativenumber
+set norelativenumber
+set cursorline
+set wrap
+set showcmd
+set wildmenu
+set hlsearch
+exec "nohlsearch"
+set incsearch
+set ignorecase
+set smartcase
+set scrolloff=5
+" Seplling check with <space>sc
+map <LEADER>sc :set spell!<CR>
+" Press space twice to jump to the next '<++>' and edit it
+map <LEADER><LEADER> <ESC>/<++><CR>:nohlsearch<CR>c4l
+noremap = nzz
+noremap - Nzz
+noremap j h
+noremap k j
+noremap i k
+noremap h i
+noremap H I
+noremap I 5k
+noremap K 5j
+noremap ; :
+noremap L 5l
+
+set autochdir
+au BufReadPost * if line("'\"") > 1 && line("'\"") <= line("$") | exe "normal! g'\"" | endif
+
+map sd :set splitright<CR>:vsplit<CR>
+map sa :set nosplitright<CR>:vsplit<CR>
+map sw :set nosplitbelow<CR>:split<CR>
+map sx :set splitbelow<CR>:split<CR>
+map re :MarkdownPreview<CR>
+map rt :MarkdownPreviewStop<CR>
+map <LEADER>i <C-w>k
+map <LEADER>k <C-w>j
+map <LEADER>j <C-w>h
+map <LEADER>l <C-w>l
+map sv <C-w>t<C-w>H
+map sh <C-w>t<C-w>K
+map <up> :res +5<CR>
+map <down> :res -5<CR>
+map <left> :vertical resize -5<CR>
+map <right> :vertical resize +5<CR>
+map tu :tabe<CR>
+map ty :+tabnext<CR>
+map tr :-tabnext<CR>
+map S :w<CR>
+map Q :q<CR>
+map R :source $MYVIMRC<CR>
+set clipboard+=unnamed
+
+call plug#begin('~/.vim/plugged')
+Plug 'vim-airline/vim-airline'
+Plug 'connorholyday/vim-snazzy'
+Plug 'ycm-core/YouCompleteMe'
+Plug 'preservim/nerdtree',{'on': 'NERDTreeToggle' }
+Plug 'mbbill/undotree'
+Plug 'preservim/tagbar'
+Plug 'iamcco/markdown-preview.nvim', { 'do': { -> mkdp#util#install() }, 'for': ['markdown', 'vim-plug']}
+call plug#end()
+color snazzy
+let g:SnazzyTransparent = 1
