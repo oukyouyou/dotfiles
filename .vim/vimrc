@@ -17,6 +17,7 @@ set wildmenu
 set hlsearch
 exec "nohlsearch"
 set incsearch
+set encoding=utf-8
 set ignorecase
 set smartcase
 set scrolloff=5
